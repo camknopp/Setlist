@@ -97,6 +97,7 @@ class EditAndSaveSongController: UIViewController, UITextFieldDelegate {
         let segmentedControl = UISegmentedControl(items: items)
         segmentedControl.frame = CGRect(x: 0, y: view.frame.size.height - 125, width: view.frame.size.width - 20, height: 50)
         segmentedControl.center.x = view.frame.size.width / 2
+        
         //segmentedControl.addTarget(self, action: #selector(segmentAction(_:)), for: .valueChanged)
         //segmentedControl.selectedSegmentIndex = 1
         self.view.addSubview(segmentedControl)

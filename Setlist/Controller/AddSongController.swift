@@ -53,8 +53,10 @@ class AddSongController: UIViewController, UITableViewDelegate, UITableViewDataS
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
     {
         let searchText = searchBar.text ?? ""
-        if (containsNonWhiteSpaceChars(text: searchText)) {
-            songs.loadSongs(searchText: searchText) { success in
+        // remove whitespace so that the song name can be found in api call
+        let searchTextFiltered = searchText.filter { !$0.isNewline && !$0.isWhitespace }
+        if (containsNonWhiteSpaceChars(text: searchTextFiltered)) {
+            songs.loadSongs(searchText: searchTextFiltered) { success in
                 if (success) {
                     // Swift specific thing where only main thread can update UI
                     DispatchQueue.main.async{

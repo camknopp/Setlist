@@ -29,11 +29,14 @@ class SongCollection {
                                             if let track = tracks[n] as? [String: Any] {
                                                 if let trackDetails = track["track"] as? [String: Any] {
                                                     if let trackName = trackDetails["track_name"] as? String {
+                                                        if trackName.contains("Karaoke") || trackName.contains("karaoke")
+                                                        {
                                                         let song = Song()
                                                         song.setName(name: trackName)
                                                         song.setMusixMatchSongID(id: trackDetails["track_id"] as! Int)
                                                         song.setArtistName(artist: trackDetails["artist_name"] as! String)
                                                         self.songs.append(song)
+                                                        }
                                                     }
                                                 }
                                             }
